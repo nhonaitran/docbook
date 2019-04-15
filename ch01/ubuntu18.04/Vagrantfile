@@ -5,8 +5,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 $bootstrap=<<SCRIPT
-apt-get update
-apt-get -y install wget
+apt-get update -qq
+apt-get upgrade -y
+apt-get -y install wget software-properties-common tcl python3.7 tree
 wget -qO- https://get.docker.com/ | sh
 gpasswd -a vagrant docker
 service docker restart
